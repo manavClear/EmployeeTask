@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: EmployeeTask
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/employees?retryWrites=true&loadBalanced=false&serverSelectionTimeoutMS=5000&connectTimeoutMS=10000
+
+server:
+  port: 8080
