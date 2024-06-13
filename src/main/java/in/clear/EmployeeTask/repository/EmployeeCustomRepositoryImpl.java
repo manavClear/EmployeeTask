@@ -16,7 +16,7 @@ public class EmployeeCustomRepositoryImpl implements EmployeeCustomRepository{
     @Override
     public List<DepartmentCountDto> findDepartmentCount(){
         GroupOperation groupOperation = Aggregation.group("department","designation").count().as("employeeCount");
-        ProjectionOperation projectionOperation = Aggregation.project("employeeCount").and("department").previousOperation().and("designation").previousOperation();
+        ProjectionOperation projectionOperation = Aggregation.project("department","designation").andInclude("employeeCount");
         Aggregation aggregation = Aggregation.newAggregation(groupOperation,projectionOperation);
         return mongoTemplate.aggregate(aggregation, EmployeeModel.class,DepartmentCountDto.class).getMappedResults();
     }
