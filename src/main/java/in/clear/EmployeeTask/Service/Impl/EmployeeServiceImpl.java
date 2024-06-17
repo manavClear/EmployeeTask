@@ -106,6 +106,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     public List<DepartmentCountDto> getDepartmentCount(){
         return employeeRepository.findDepartmentCount();
     }
+    @Override
+    public double getAverageExperience() {
+        return employeeRepository.getAverageExperience().orElse(0.0);
+    }
 
 }
 

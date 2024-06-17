@@ -14,6 +14,6 @@ public interface EmployeeService {
     public SuccessResponseModel updateEmployee(String id,EmployeeModel Employee);
 
     public SuccessResponseModel deleteEmployee(String id);
-
+    public double getAverageExperience();
     public List<DepartmentCountDto> getDepartmentCount();
 }
